@@ -1,0 +1,50 @@
+{
+  "owner": {
+    "name": "Mirzohid Mahmutaliyev",
+    "title": "Frontend Developer",
+    "bio": "Men tajribali dasturchiman, zamonaviy veb-ilovalarni yaratishga ixtisoslashganman. Mening maqsadim - yuqori sifatli va foydalanuvchilar uchun qulay dasturiy ta'minot yaratish.",
+    "contact": {
+      "email": "mmahmutaliyev@gmail.com",
+      "instagram": "https://instagram.com/Mahmutaliyev_dev",
+      "telegram": "https://t.me/Mahmutaliyev_dev",
+      "phone": "+998 90 303 68 84"
+    }
+  },
+  "experience": [],
+  "education": [],
+  "skills": [
+    {
+      "id": "1",
+      "name": "React",
+      "category": "Frontend"
+    },
+    {
+      "id": "2",
+      "name": "Next.js",
+      "category": "Frontend"
+    },
+    {
+      "id": "3",
+      "name": "TypeScript",
+      "category": "Language"
+    },
+    {
+      "id": "4",
+      "name": "Tailwind CSS",
+      "category": "Styling"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Portfolio Website",
+      "description": "Men o'zimning shaxsiy portfolio saytimni yaratdim. Bu sayt Next.js va Tailwind CSS yordamida qurilgan.",
+      "tools": [
+        "Next.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "link": "#"
+    }
+  ]
+}
