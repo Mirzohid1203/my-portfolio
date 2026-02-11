@@ -32,7 +32,7 @@ export default function Skills({ skills }: { skills: any[] }) {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                         >
-                            <Card className="bg-white/5 border-white/10 hover:border-purple-500/50 transition-colors cursor-default group">
+                            <Card className="bg-muted/30 border-border hover:border-purple-500/50 transition-colors cursor-default group">
                                 <CardContent className="flex flex-col items-center justify-center p-6 gap-4">
                                     <BadgeCheck className="h-8 w-8 text-purple-500 group-hover:text-purple-400 transition-colors" />
                                     <span className="font-semibold text-center">{skill.name}</span>

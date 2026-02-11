@@ -46,7 +46,7 @@ export default function Contact({ contact }: { contact: any }) {
 
     return (
         <section id="contact" className="py-20 relative">
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
                 <motion.div
@@ -68,23 +68,23 @@ export default function Contact({ contact }: { contact: any }) {
                         viewport={{ once: true }}
                         className="space-y-8"
                     >
-                        <Card className="glass-card border-none bg-white/5 h-full">
+                        <Card className="glass-card border-border bg-muted/30 h-full">
                             <CardHeader>
                                 <CardTitle className="text-2xl">Contact Information</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 <div>
-                                    <h4 className="font-semibold text-lg text-white">Email</h4>
+                                    <h4 className="font-semibold text-lg text-foreground">Email</h4>
                                     <a href={`mailto:${contact.email}`} className="text-muted-foreground hover:text-primary transition-colors">
                                         {contact.email}
                                     </a>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-lg text-white">Phone</h4>
+                                    <h4 className="font-semibold text-lg text-foreground">Phone</h4>
                                     <p className="text-muted-foreground">{contact.phone}</p>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-lg text-white">Socials</h4>
+                                    <h4 className="font-semibold text-lg text-foreground">Socials</h4>
                                     <div className="flex gap-4 mt-2">
                                         <a href={contact.instagram} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-pink-500 transition-colors">Instagram</a>
                                         <a href={contact.telegram} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-blue-500 transition-colors">Telegram</a>
@@ -110,7 +110,7 @@ export default function Contact({ contact }: { contact: any }) {
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="bg-white/5 border-white/10 focus:border-purple-500"
+                                        className="bg-muted/30 border-border focus:border-purple-500"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -123,7 +123,7 @@ export default function Contact({ contact }: { contact: any }) {
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="bg-white/5 border-white/10 focus:border-purple-500"
+                                        className="bg-muted/30 border-border focus:border-purple-500"
                                     />
                                 </div>
                             </div>
@@ -137,7 +137,7 @@ export default function Contact({ contact }: { contact: any }) {
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
-                                    className="bg-white/5 border-white/10 focus:border-purple-500"
+                                    className="bg-muted/30 border-border focus:border-purple-500"
                                 />
                             </div>
                             <Button type="submit" className="w-full" disabled={isLoading}>

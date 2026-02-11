@@ -6,6 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useTheme } from "@/components/ThemeProvider";
+import { Sun, Moon } from "lucide-react";
 
 const navItems = [
     { name: "Home", href: "/" },
@@ -17,6 +19,7 @@ const navItems = [
 
 export default function Navbar() {
     const pathname = usePathname();
+    const { theme, toggleTheme } = useTheme();
     const [scrolled, setScrolled] = React.useState(false);
 
     React.useEffect(() => {
@@ -31,7 +34,9 @@ export default function Navbar() {
         <header
             className={cn(
                 "fixed top-0 w-full z-50 transition-all duration-300",
-                scrolled ? "bg-black/50 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+                scrolled
+                    ? "bg-background/70 backdrop-blur-md border-b border-border"
+                    : "bg-transparent"
             )}
         >
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -49,9 +54,18 @@ export default function Navbar() {
                         </Link>
                     ))}
                 </nav>
-                <Link href="/admin" className="text-sm font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition">
-                    Admin Login
-                </Link>
+                <div className="flex items-center gap-4">
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 rounded-full hover:bg-muted transition-colors text-foreground"
+                        aria-label="Toggle Theme"
+                    >
+                        {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                    </button>
+                    <Link href="/admin" className="text-sm font-medium bg-foreground text-background px-4 py-2 rounded-full hover:opacity-90 transition">
+                        Admin Login
+                    </Link>
+                </div>
             </div>
         </header>
     );

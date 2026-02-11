@@ -24,7 +24,7 @@ export default function Hero({ data }: { data: any }) {
                     transition={{ duration: 0.8 }}
                     className="space-y-6"
                 >
-                    <div className="inline-block px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-muted-foreground">
+                    <div className="inline-block px-3 py-1 rounded-full border border-border bg-muted/30 text-sm text-muted-foreground">
                         Available for freelance work
                     </div>
                     <h1 className="text-5xl md:text-7xl font-bold leading-tight">
@@ -43,24 +43,24 @@ export default function Hero({ data }: { data: any }) {
                             </Button>
                         </Link>
                         <Link href="#projects">
-                            <Button size="lg" variant="outline" className="rounded-full border-white/20 hover:bg-white/10">
+                            <Button size="lg" variant="outline" className="rounded-full border-border hover:bg-muted/50">
                                 View Work
                             </Button>
                         </Link>
                     </div>
                     <div className="flex gap-4 pt-4">
                         {contact.email && (
-                            <a href={`mailto:${contact.email}`} className="text-muted-foreground hover:text-white transition-colors">
+                            <a href={`mailto:${contact.email}`} className="text-muted-foreground hover:text-foreground transition-colors">
                                 <Mail className="h-6 w-6" />
                             </a>
                         )}
                         {contact.github && (
-                            <a href={contact.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors">
+                            <a href={contact.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
                                 <Github className="h-6 w-6" />
                             </a>
                         )}
                         {contact.linkedin && (
-                            <a href={contact.linkedin} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors">
+                            <a href={contact.linkedin} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
                                 <Linkedin className="h-6 w-6" />
                             </a>
                         )}
@@ -73,7 +73,7 @@ export default function Hero({ data }: { data: any }) {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="relative flex items-center justify-center h-[400px] md:h-[500px] w-full"
                 >
-                    <div className="relative w-full h-full max-w-[350px] md:max-w-[450px] aspect-square bg-gradient-to-tr from-purple-500/10 to-blue-500/10 rounded-full border border-white/10 overflow-hidden">
+                    <div className="relative w-full h-full max-w-[350px] md:max-w-[450px] aspect-square bg-gradient-to-tr from-purple-500/10 to-blue-500/10 rounded-full border border-border overflow-hidden">
                         <Image
                             src="/me.jpg"
                             alt={name}

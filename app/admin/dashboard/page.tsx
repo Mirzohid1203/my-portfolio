@@ -130,10 +130,10 @@ export default function AdminDashboard() {
         setData(newData);
     };
 
-    if (loading || !data || !data.owner) return <div className="p-10 text-white">Loading Admin...</div>;
+    if (loading || !data || !data.owner) return <div className="p-10 text-foreground">Loading Admin...</div>;
 
     return (
-        <div className="min-h-screen bg-black text-white p-8">
+        <div className="min-h-screen bg-background text-foreground p-8">
             <div className="max-w-6xl mx-auto space-y-8">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -153,7 +153,7 @@ export default function AdminDashboard() {
                 </div>
 
                 <Tabs defaultValue="profile" className="w-full">
-                    <TabsList className="grid w-full grid-cols-5 bg-white/5 text-white">
+                    <TabsList className="grid w-full grid-cols-5 bg-muted text-foreground">
                         <TabsTrigger value="profile">Profile</TabsTrigger>
                         <TabsTrigger value="skills">Skills</TabsTrigger>
                         <TabsTrigger value="projects">Projects</TabsTrigger>
@@ -161,8 +161,8 @@ export default function AdminDashboard() {
                         <TabsTrigger value="messages">Messages</TabsTrigger>
                     </TabsList>
 
-                    <TabsContent value="profile" className="space-y-4 text-white">
-                        <Card className="bg-white/5 border-white/10">
+                    <TabsContent value="profile" className="space-y-4 text-foreground">
+                        <Card className="bg-muted/50 border-border">
                             <CardHeader>
                                 <CardTitle>Profile Information</CardTitle>
                                 <CardDescription>Edit your details.</CardDescription>
@@ -171,33 +171,33 @@ export default function AdminDashboard() {
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label className="text-xs text-muted-foreground">Name</label>
-                                        <Input value={data.owner.name} onChange={(e) => handleOwnerChange("name", e.target.value)} className="bg-black/20" />
+                                        <Input value={data.owner.name} onChange={(e) => handleOwnerChange("name", e.target.value)} className="bg-background/50" />
                                     </div>
                                     <div>
                                         <label className="text-xs text-muted-foreground">Title</label>
-                                        <Input value={data.owner.title} onChange={(e) => handleOwnerChange("title", e.target.value)} className="bg-black/20" />
+                                        <Input value={data.owner.title} onChange={(e) => handleOwnerChange("title", e.target.value)} className="bg-background/50" />
                                     </div>
                                 </div>
                                 <div>
                                     <label className="text-xs text-muted-foreground">Bio</label>
-                                    <Textarea value={data.owner.bio} onChange={(e) => handleOwnerChange("bio", e.target.value)} className="bg-black/20" />
+                                    <Textarea value={data.owner.bio} onChange={(e) => handleOwnerChange("bio", e.target.value)} className="bg-background/50" />
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label className="text-xs text-muted-foreground">Email</label>
-                                        <Input value={data.owner.contact.email} onChange={(e) => handleContactChange("email", e.target.value)} className="bg-black/20" />
+                                        <Input value={data.owner.contact.email} onChange={(e) => handleContactChange("email", e.target.value)} className="bg-background/50" />
                                     </div>
                                     <div>
                                         <label className="text-xs text-muted-foreground">Phone</label>
-                                        <Input value={data.owner.contact.phone} onChange={(e) => handleContactChange("phone", e.target.value)} className="bg-black/20" />
+                                        <Input value={data.owner.contact.phone} onChange={(e) => handleContactChange("phone", e.target.value)} className="bg-background/50" />
                                     </div>
                                     <div>
                                         <label className="text-xs text-muted-foreground">Instagram</label>
-                                        <Input value={data.owner.contact.instagram} onChange={(e) => handleContactChange("instagram", e.target.value)} className="bg-black/20" />
+                                        <Input value={data.owner.contact.instagram} onChange={(e) => handleContactChange("instagram", e.target.value)} className="bg-background/50" />
                                     </div>
                                     <div>
                                         <label className="text-xs text-muted-foreground">Telegram</label>
-                                        <Input value={data.owner.contact.telegram} onChange={(e) => handleContactChange("telegram", e.target.value)} className="bg-black/20" />
+                                        <Input value={data.owner.contact.telegram} onChange={(e) => handleContactChange("telegram", e.target.value)} className="bg-background/50" />
                                     </div>
                                 </div>
                             </CardContent>
@@ -205,7 +205,7 @@ export default function AdminDashboard() {
                     </TabsContent>
 
                     <TabsContent value="skills" className="space-y-4">
-                        <Card className="bg-white/5 border-white/10">
+                        <Card className="bg-muted/50 border-border">
                             <CardHeader className="flex flex-row items-center justify-between">
                                 <div>
                                     <CardTitle>Skills</CardTitle>
@@ -217,9 +217,9 @@ export default function AdminDashboard() {
                             </CardHeader>
                             <CardContent className="space-y-4">
                                 {data.skills.map((skill: any, index: number) => (
-                                    <div key={skill.id} className="flex items-center gap-4 bg-white/5 p-3 rounded-md">
-                                        <Input value={skill.name} onChange={(e) => updateArrayItem('skills', index, 'name', e.target.value)} className="bg-black/20 w-1/3" placeholder="Skill Name" />
-                                        <Input value={skill.category} onChange={(e) => updateArrayItem('skills', index, 'category', e.target.value)} className="bg-black/20 w-1/3" placeholder="Category" />
+                                    <div key={skill.id} className="flex items-center gap-4 bg-muted/50 p-3 rounded-md">
+                                        <Input value={skill.name} onChange={(e) => updateArrayItem('skills', index, 'name', e.target.value)} className="bg-background/50 w-1/3" placeholder="Skill Name" />
+                                        <Input value={skill.category} onChange={(e) => updateArrayItem('skills', index, 'category', e.target.value)} className="bg-background/50 w-1/3" placeholder="Category" />
                                         <Button variant="destructive" size="icon" onClick={() => deleteItem('skills', index)}>
                                             <Trash className="h-4 w-4" />
                                         </Button>
@@ -230,7 +230,7 @@ export default function AdminDashboard() {
                     </TabsContent>
 
                     <TabsContent value="projects" className="space-y-4">
-                        <Card className="bg-white/5 border-white/10">
+                        <Card className="bg-muted/50 border-border">
                             <CardHeader className="flex flex-row items-center justify-between">
                                 <div>
                                     <CardTitle>Projects</CardTitle>
@@ -242,9 +242,9 @@ export default function AdminDashboard() {
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 {data.projects.map((project: any, index: number) => (
-                                    <div key={project.id} className="space-y-3 bg-white/5 p-4 rounded-md border border-white/10">
+                                    <div key={project.id} className="space-y-3 bg-muted/50 p-4 rounded-md border border-border">
                                         <div className="flex gap-4">
-                                            <Input value={project.title} onChange={(e) => updateArrayItem('projects', index, 'title', e.target.value)} className="bg-black/20 font-bold" placeholder="Project Title" />
+                                            <Input value={project.title} onChange={(e) => updateArrayItem('projects', index, 'title', e.target.value)} className="bg-background/50 font-bold" placeholder="Project Title" />
                                             <Button variant="destructive" size="icon" onClick={() => deleteItem('projects', index)}>
                                                 <Trash className="h-4 w-4" />
                                             </Button>
@@ -255,7 +255,7 @@ export default function AdminDashboard() {
                                                 <Input
                                                     value={project.tools?.join(", ") || ""}
                                                     onChange={(e) => updateArrayItem('projects', index, 'tools', e.target.value.split(",").map(s => s.trim()))}
-                                                    className="bg-black/20"
+                                                    className="bg-background/50"
                                                     placeholder="React, Next.js, Tailwind"
                                                 />
                                             </div>
@@ -264,12 +264,12 @@ export default function AdminDashboard() {
                                                 <Input
                                                     value={project.link || ""}
                                                     onChange={(e) => updateArrayItem('projects', index, 'link', e.target.value)}
-                                                    className="bg-black/20"
+                                                    className="bg-background/50"
                                                     placeholder="https://github.com/..."
                                                 />
                                             </div>
                                         </div>
-                                        <Textarea value={project.description} onChange={(e) => updateArrayItem('projects', index, 'description', e.target.value)} className="bg-black/20" placeholder="Description" />
+                                        <Textarea value={project.description} onChange={(e) => updateArrayItem('projects', index, 'description', e.target.value)} className="bg-background/50" placeholder="Description" />
                                     </div>
                                 ))}
                             </CardContent>
@@ -277,7 +277,7 @@ export default function AdminDashboard() {
                     </TabsContent>
 
                     <TabsContent value="experience" className="space-y-4">
-                        <Card className="bg-white/5 border-white/10">
+                        <Card className="bg-muted/50 border-border">
                             <CardHeader className="flex flex-row items-center justify-between">
                                 <div>
                                     <CardTitle>Experience</CardTitle>
@@ -289,23 +289,23 @@ export default function AdminDashboard() {
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 {data.experience.map((exp: any, index: number) => (
-                                    <div key={exp.id} className="bg-white/5 p-4 rounded-md space-y-3 border border-white/10">
+                                    <div key={exp.id} className="bg-muted/50 p-4 rounded-md space-y-3 border border-border">
                                         <div className="grid grid-cols-2 gap-4">
-                                            <Input value={exp.role} onChange={(e) => updateArrayItem('experience', index, 'role', e.target.value)} className="bg-black/20" placeholder="Role" />
-                                            <Input value={exp.company} onChange={(e) => updateArrayItem('experience', index, 'company', e.target.value)} className="bg-black/20" placeholder="Company" />
+                                            <Input value={exp.role} onChange={(e) => updateArrayItem('experience', index, 'role', e.target.value)} className="bg-background/50" placeholder="Role" />
+                                            <Input value={exp.company} onChange={(e) => updateArrayItem('experience', index, 'company', e.target.value)} className="bg-background/50" placeholder="Company" />
                                         </div>
                                         <div className="flex justify-between items-center gap-4">
-                                            <Input value={exp.dates} onChange={(e) => updateArrayItem('experience', index, 'dates', e.target.value)} className="bg-black/20 w-1/2" placeholder="Dates" />
+                                            <Input value={exp.dates} onChange={(e) => updateArrayItem('experience', index, 'dates', e.target.value)} className="bg-background/50 w-1/2" placeholder="Dates" />
                                             <Button variant="destructive" size="icon" onClick={() => deleteItem('experience', index)}>
                                                 <Trash className="h-4 w-4" />
                                             </Button>
                                         </div>
-                                        <Textarea value={exp.description} onChange={(e) => updateArrayItem('experience', index, 'description', e.target.value)} className="bg-black/20" placeholder="Description" />
+                                        <Textarea value={exp.description} onChange={(e) => updateArrayItem('experience', index, 'description', e.target.value)} className="bg-background/50" placeholder="Description" />
                                     </div>
                                 ))}
                             </CardContent>
                         </Card>
-                        <Card className="bg-white/5 border-white/10 mt-8">
+                        <Card className="bg-muted/50 border-border mt-8">
                             <CardHeader className="flex flex-row items-center justify-between">
                                 <div>
                                     <CardTitle>Education</CardTitle>
@@ -317,18 +317,18 @@ export default function AdminDashboard() {
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 {data.education.map((edu: any, index: number) => (
-                                    <div key={edu.id} className="bg-white/5 p-4 rounded-md space-y-3 border border-white/10">
+                                    <div key={edu.id} className="bg-muted/50 p-4 rounded-md space-y-3 border border-border">
                                         <div className="grid grid-cols-2 gap-4">
-                                            <Input value={edu.school} onChange={(e) => updateArrayItem('education', index, 'school', e.target.value)} className="bg-black/20" placeholder="School" />
-                                            <Input value={edu.degree} onChange={(e) => updateArrayItem('education', index, 'degree', e.target.value)} className="bg-black/20" placeholder="Degree" />
+                                            <Input value={edu.school} onChange={(e) => updateArrayItem('education', index, 'school', e.target.value)} className="bg-background/50" placeholder="School" />
+                                            <Input value={edu.degree} onChange={(e) => updateArrayItem('education', index, 'degree', e.target.value)} className="bg-background/50" placeholder="Degree" />
                                         </div>
                                         <div className="flex justify-between items-center gap-4">
-                                            <Input value={edu.dates} onChange={(e) => updateArrayItem('education', index, 'dates', e.target.value)} className="bg-black/20 w-1/2" placeholder="Dates" />
+                                            <Input value={edu.dates} onChange={(e) => updateArrayItem('education', index, 'dates', e.target.value)} className="bg-background/50 w-1/2" placeholder="Dates" />
                                             <Button variant="destructive" size="icon" onClick={() => deleteItem('education', index)}>
                                                 <Trash className="h-4 w-4" />
                                             </Button>
                                         </div>
-                                        <Textarea value={edu.description} onChange={(e) => updateArrayItem('education', index, 'description', e.target.value)} className="bg-black/20" placeholder="Description" />
+                                        <Textarea value={edu.description} onChange={(e) => updateArrayItem('education', index, 'description', e.target.value)} className="bg-background/50" placeholder="Description" />
                                     </div>
                                 ))}
                             </CardContent>
@@ -336,7 +336,7 @@ export default function AdminDashboard() {
                     </TabsContent>
 
                     <TabsContent value="messages" className="space-y-4">
-                        <Card className="bg-white/5 border-white/10">
+                        <Card className="bg-muted/50 border-border">
                             <CardHeader>
                                 <CardTitle>Messages</CardTitle>
                                 <CardDescription>Messages from your portfolio contact form.</CardDescription>
@@ -346,7 +346,7 @@ export default function AdminDashboard() {
                                     <p className="text-muted-foreground text-center py-10">No messages yet.</p>
                                 ) : (
                                     messages.map((msg: any) => (
-                                        <div key={msg.id} className="bg-white/5 p-4 rounded-md space-y-2 border border-white/10 relative group">
+                                        <div key={msg.id} className="bg-muted/50 p-4 rounded-md space-y-2 border border-border relative group">
                                             <div className="flex justify-between items-start">
                                                 <div>
                                                     <h4 className="font-bold">{msg.name}</h4>
