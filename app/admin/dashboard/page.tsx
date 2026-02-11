@@ -26,20 +26,46 @@ export default function AdminDashboard() {
             return;
         }
 
-        // Fetch data
-        fetch("/api/data")
-            .then((res) => res.json())
-            .then((json) => {
-                setData(json);
-            });
+        const fetchData = async () => {
+            try {
+                const dataRes = await fetch("/api/data");
+                const contactRes = await fetch("/api/contact");
 
-        // Fetch messages
-        fetch("/api/contact")
-            .then((res) => res.json())
-            .then((json) => {
-                setMessages(json);
+                const jsonData = await dataRes.json();
+                const jsonContact = await contactRes.json();
+
+                // Ensure all parts exist to prevent crashes
+                const safeData = {
+                    ...jsonData,
+                    owner: {
+                        name: "",
+                        title: "",
+                        bio: "",
+                        ...jsonData.owner,
+                        contact: {
+                            email: "",
+                            phone: "",
+                            instagram: "",
+                            telegram: "",
+                            ...(jsonData.owner?.contact || {})
+                        }
+                    },
+                    skills: jsonData.skills || [],
+                    projects: jsonData.projects || [],
+                    experience: jsonData.experience || [],
+                    education: jsonData.education || [],
+                };
+
+                setData(safeData);
+                setMessages(jsonContact || []);
                 setLoading(false);
-            });
+            } catch (error) {
+                console.error("Error fetching admin data:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
     }, [router]);
 
     const handleSave = async () => {
@@ -104,7 +130,7 @@ export default function AdminDashboard() {
         setData(newData);
     };
 
-    if (loading) return <div className="p-10 text-white">Loading Admin...</div>;
+    if (loading || !data || !data.owner) return <div className="p-10 text-white">Loading Admin...</div>;
 
     return (
         <div className="min-h-screen bg-black text-white p-8">

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mirzohid Mahmutaliyev | Portfolio",
-  description: "Full Stack Developer Portfolio showcasing projects, skills, and experience.",
+  title: "Portfolio",
+  description: "Frontend Developer Portfolio showcasing projects, skills, and experience.",
 };
 
 export default function RootLayout({

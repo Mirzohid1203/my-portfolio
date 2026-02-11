@@ -6,9 +6,7 @@ export async function POST(req: Request) {
         const body = await req.json();
         const { email, password } = body;
 
-        if (email === 'mmahmutaliyev@gmail.com' && password === 'mirzohid') {
-            // In a real app, send a secure token.
-            // For this, we'll just acknowledge the login for client-side state.
+        if (email === 'mmahmutaliyev411@gmail.com' && password === 'mirzohid') {
             return NextResponse.json({ success: true, token: 'simple-admin-token' });
         }
 
